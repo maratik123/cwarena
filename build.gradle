@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'findbugs'
 
 group = 'io.maratik123'
 version = version

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" packages="io.maratik.cwarena.log4j2">
+    <Appenders>
+        <Async name="ASYNC">
+            <AppenderRef ref="CONSOLE"/>
+        </Async>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %-5p [%c{1.} %t] %m %n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="io.maratik.cwarena" level="DEBUG"/>
+
+        <Root level="INFO">
+            <AppenderRef ref="ASYNC"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -2,21 +2,32 @@ apply plugin: 'java'
 apply plugin: 'findbugs'
 apply plugin: 'application'
 
-mainClassName = 'io.maratik.cwarena.Main'
-
 group = 'io.maratik'
 version = version
 
+mainClassName = 'io.maratik.cwarena.Main'
+
 sourceCompatibility = 1.8
+
+def log4jVersion = '2.10.0'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'junit:junit:4.12'
+    ['log4j-1.2-api', 'log4j-slf4j-impl', 'log4j-api', 'log4j-core'].each {
+        compile "org.apache.logging.log4j:${it}:${log4jVersion}"
+    }
 }
 
 tasks.withType(JavaCompile) {
-    options.compilerArgs << "-Xlint:unchecked"
+    options.compilerArgs << '-Xlint:unchecked'
+}
+
+configurations {
+    ['log4j', 'slf4j-log4j12', 'logback-core', 'logback-classic'].each {
+        compile.exclude module: it
+    }
 }

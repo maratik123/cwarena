@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'findbugs'
+
+group = 'io.maratik123'
+version = version
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:unchecked"
+}

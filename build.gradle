@@ -1,7 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'findbugs'
+apply plugin: 'application'
 
-group = 'io.maratik123'
+mainClassName = 'io.maratik.cwarena.Main'
+
+group = 'io.maratik'
 version = version
 
 sourceCompatibility = 1.8
